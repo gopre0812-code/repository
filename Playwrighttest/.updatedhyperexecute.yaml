@@ -1,0 +1,202 @@
+accessibilityJob: false
+alwaysRunPostSteps: false
+appium: null
+betaFeature:
+    setPartiallyCompletedAsCompleted: false
+captureScreenRecordingForScenarios: false
+codeDirectory: Playwrighttest
+collectLocalGitData: true
+combineTasksInMatrixMode: false
+cypress: false
+differentialUpload:
+    enabled: false
+    forcedDisabled: false
+    ttlHours: null
+dynamicAllocation: false
+errorCategorizedOnFailureOnly: false
+framework:
+    additional_args: null
+    args:
+        appId: ""
+        appPath: ""
+        artifacts: false
+        autoGrantPermissions: false
+        avoidAppLaunch: false
+        customData: {}
+        darkMode: false
+        deviceSelectionStrategy: ""
+        devices: []
+        disableReleaseDevice: false
+        enableBluetooth: false
+        enableResultBundle: false
+        filters:
+            attributes: []
+        fixedIP: ""
+        isRealMobile: null
+        isVirtualDevice: false
+        language: ""
+        locale: ""
+        minorOsVersion: false
+        mitmProxy: false
+        mobileDC: null
+        networkHar: false
+        networkLogsOptions:
+            captureContent: false
+            excludeHosts: []
+            includeHosts: []
+        otherApps: []
+        platformName: ""
+        playwrightRD: false
+        preservedDevice: false
+        queueTimeout: 0
+        shards:
+            mappings: []
+        skipInstall: false
+        skipUninstallPreviousBuild: false
+        skipXMLOnRun: false
+        smartUI: null
+        testRemarks: false
+        testSuiteAppId: ""
+        testSuitePath: ""
+        uninstallPreviousBuild: false
+        xcTestPlanId: ""
+        xcTestPlanPath: ""
+    baseCommand: ""
+    defaultReports: false
+    discoveryFlags: []
+    discoveryMode: ""
+    discoveryType: ""
+    downloadURL: ""
+    flags: []
+    isTestNGXMLSuite: false
+    licenseKey: ""
+    name: ""
+    runnerFlags: []
+    toscaArgs: null
+    userdefinediscovery: false
+    version: ""
+    workingDirectory: ""
+globalPost:
+    commands: []
+    completed: false
+    mode: ""
+    runson: ""
+    shell: ""
+    workingDirectory: ""
+globalPre:
+    cache: false
+    commands: []
+    completed: false
+    location: ""
+    maxRetries: 0
+    mode: ""
+    runson: ""
+    shell: ""
+    type: ""
+    workingDirectory: ""
+    yamlPath: null
+globalTimeout: 120
+jobID: 4495e22f-1024-4b7b-8c4c-7782d4018ef8
+key: '********'
+localHTTPProxy: ""
+ltOptions: {}
+matrix:
+    os:
+        - win
+        - linux
+maxRetriesPreSteps: 0
+mergeArtifacts: true
+meta: {}
+platformConfig: null
+postDirectives:
+    commands: []
+    shell: ""
+    workingDirectory: ""
+pre:
+    - java -version
+    - mvn -version
+    - |
+      if [ "$RUNNER_OS" = "linux" ]; then
+        curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+        apt-get update
+        apt-get install -y nodejs
+      fi
+    - |
+      if [ "$RUNNER_OS" = "win" ]; then
+        powershell -Command "choco install nodejs-lts -y"
+      fi
+    - mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
+    - mvn clean install -DskipTests
+preDirectives:
+    commands:
+        - java -version
+        - mvn -version
+        - |
+          if [ "$RUNNER_OS" = "linux" ]; then
+            curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+            apt-get update
+            apt-get install -y nodejs
+          fi
+        - |
+          if [ "$RUNNER_OS" = "win" ]; then
+            powershell -Command "choco install nodejs-lts -y"
+          fi
+        - mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
+        - mvn clean install -DskipTests
+    maxRetries: 0
+    shell: ""
+    workingDirectory: ""
+project:
+    id: 01KEEHQE3M9V20DFV5BQJQFKWR
+    name: LambdaTest Default Project
+    type: custom
+projectpath: ""
+regionConfig:
+    storage:
+        enabled: false
+        name: ""
+        platform: azure
+        region: ""
+    vm: []
+runson: ${matrix.os}
+runtime:
+    language: java
+    version: "8"
+    addons: []
+    opts: {}
+slackChannel: ""
+sourcePayload:
+    verifySSL: true
+sprofilePath: ""
+storageType: ""
+testDiscoveryResultV3: []
+testSuiteTimeout: 120
+testSuites: []
+testType: playwright
+triggerMode: false
+triggerSource: CLI
+tunnelOpts:
+    testsPerTunnel: 10
+unzipPayload: false
+uploadArtefacts:
+    - email:
+        linkValidity: 0
+        metaInfo: []
+        to: []
+      name: Execution-Reports
+      path:
+        - target/surefire-reports/**
+        - test-results/**
+uploadArtifacts:
+    - email:
+        linkValidity: 0
+        metaInfo: []
+        to: []
+      name: Execution-Reports
+      path:
+        - target/surefire-reports/**
+        - test-results/**
+user: gopre0812
+version: "0.1"
+waitForArtefactsUpload: false
+whiteLabelProductTag: ""

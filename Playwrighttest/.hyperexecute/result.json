@@ -1,0 +1,84 @@
+{
+    "id": "4495e22f-1024-4b7b-8c4c-7782d4018ef8",
+    "remark": "Job failed at prerun step. Please check your Yaml configuration.",
+    "created_at": "2026-01-08T16:38:57Z",
+    "update_at": "2026-01-08T16:41:13Z",
+    "global_timeout": 120,
+    "tunnel_name": "",
+    "start_time": "2026-01-08T16:39:08Z",
+    "end_time": "2026-01-08T16:41:13Z",
+    "summary": {
+        "total_time": 125000000000,
+        "execution_time": 125000000000,
+        "total_tasks": 2,
+        "build_time_consumed": 73000000000,
+        "jobTestExecutionTime": "0s",
+        "failed_tasks": 2,
+        "total_stage_info": {
+            "prerun": {
+                "StageFailedPercent": 100,
+                "StagePassPercent": 0,
+                "TotalStage": 2
+            }
+        },
+        "status": "failed",
+        "job_link": "https://hyperexecute.lambdatest.com/hyperexecute/task?jobId=4495e22f-1024-4b7b-8c4c-7782d4018ef8"
+    },
+    "tasks": [
+        {
+            "id": "HYPW-2965395-1767890347794642598KAM",
+            "os": "win",
+            "status": "failed",
+            "remark": "Job failed at prerun step. Please check your Yaml configuration.",
+            "debug": false,
+            "created_at": "2026-01-08T16:39:07Z",
+            "update_at": "2026-01-08T16:39:30Z",
+            "start_time": "2026-01-08T16:39:08Z",
+            "end_time": "2026-01-08T16:39:30Z",
+            "group_number": 1,
+            "stages": [
+                {
+                    "id": "27f1b54e-5354-496e-b521-b89fc74a8ca6",
+                    "type": "prerun",
+                    "status": "failed",
+                    "name": "pre",
+                    "iteration": 0,
+                    "link": "pre.log",
+                    "created_at": "2026-01-08T16:39:22Z",
+                    "started_at": "2026-01-08T16:39:22Z",
+                    "updated_at": "2026-01-08T16:39:30Z",
+                    "order": 2,
+                    "task_number": 1
+                }
+            ]
+        },
+        {
+            "id": "HYPL-2965395-1767890347798871085EGY",
+            "os": "linux",
+            "status": "failed",
+            "remark": "Job failed at prerun step. Please check your Yaml configuration.",
+            "debug": false,
+            "created_at": "2026-01-08T16:39:07Z",
+            "update_at": "2026-01-08T16:41:13Z",
+            "start_time": "2026-01-08T16:40:22Z",
+            "end_time": "2026-01-08T16:41:13Z",
+            "group_number": 2,
+            "stages": [
+                {
+                    "id": "77bd7523-a357-46fc-bd7c-e3178b682865",
+                    "type": "prerun",
+                    "status": "failed",
+                    "name": "pre",
+                    "iteration": 0,
+                    "link": "pre.log",
+                    "created_at": "2026-01-08T16:40:42Z",
+                    "started_at": "2026-01-08T16:40:41Z",
+                    "updated_at": "2026-01-08T16:41:13Z",
+                    "order": 2,
+                    "task_number": 2
+                }
+            ]
+        }
+    ],
+    "test_ids": null
+}

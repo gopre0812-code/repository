@@ -1,0 +1,50 @@
+version: 0.1
+
+globalTimeout: 120
+testSuiteTimeout: 120
+testSuiteStepTimeout: 120
+
+matrix:
+  os: [win, linux]
+
+runson: ${matrix.os}
+
+runtime:
+  language: java
+  version: 17
+
+mergeArtifacts: true
+
+uploadArtifacts:
+  - name: Execution-Reports
+    path:
+      - target/surefire-reports/**
+      - test-results/**
+
+pre:
+  # ---- Debug ----
+  - java -version
+  - mvn -version
+
+  # ---- Linux setup ----
+  - |
+    if [ "$RUNNER_OS" = "linux" ]; then
+      curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+      apt-get update
+      apt-get install -y nodejs
+    fi
+
+  # ---- Windows setup ----
+  - |
+    if [ "$RUNNER_OS" = "win" ]; then
+      powershell -Command "choco install nodejs-lts -y"
+    fi
+
+  # ---- Playwright browsers ----
+  - mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
+
+  # ---- Build ----
+  - mvn clean install -DskipTests
+
+run:
+  - mvn test -DsuiteXmlFile=testng.xml
